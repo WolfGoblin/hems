@@ -15,8 +15,18 @@
 }
 
 /* Global Smooth Scroll & Selection */
+/* Global Smooth Scroll & Selection */
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
 
 ::selection {

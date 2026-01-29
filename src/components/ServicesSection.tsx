@@ -59,9 +59,9 @@ export default function ServicesSection() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="group relative overflow-hidden rounded-4xl bg-slate-900 p-10 md:p-14 shadow-2xl"
+                        className="group relative overflow-hidden rounded-4xl bg-linear-to-br from-blue-950 to-slate-900 p-10 md:p-14 shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:scale-[1.01] transition-all duration-500"
                     >
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-3xl group-hover:bg-red-600/30 transition-all duration-700" />
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/10 rounded-full blur-3xl group-hover:bg-red-600/20 transition-all duration-700" />
                         <div className="relative z-10">
                             <div className="w-14 h-14 bg-red-500 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-red-500/30">
                                 <Phone className="w-7 h-7 text-white animate-pulse" />
@@ -109,9 +109,11 @@ export default function ServicesSection() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 + (idx * 0.1) }}
-                            className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                            className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 hover:border-l-4 hover:border-l-hems-accent transition-all duration-400 group"
                         >
-                            <service.icon className="w-10 h-10 text-hems-accent mb-6" strokeWidth={1.5} />
+                            <div className="mb-6 transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 origin-left">
+                                <service.icon className="w-10 h-10 text-hems-accent" strokeWidth={1.5} />
+                            </div>
                             <h4 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h4>
                             <p className="text-slate-500 leading-relaxed text-sm">
                                 {service.description}
