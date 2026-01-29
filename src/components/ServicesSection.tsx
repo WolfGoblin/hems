@@ -59,7 +59,7 @@ export default function ServicesSection() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="group relative overflow-hidden rounded-[2rem] bg-slate-900 p-10 md:p-14 shadow-2xl"
+                        className="group relative overflow-hidden rounded-4xl bg-slate-900 p-10 md:p-14 shadow-2xl"
                     >
                         <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-3xl group-hover:bg-red-600/30 transition-all duration-700" />
                         <div className="relative z-10">
@@ -82,7 +82,7 @@ export default function ServicesSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="group relative overflow-hidden rounded-[2rem] bg-white p-10 md:p-14 shadow-xl border border-slate-100"
+                        className="group relative overflow-hidden rounded-4xl bg-white p-10 md:p-14 shadow-xl border border-slate-100"
                     >
                         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100/50 rounded-full blur-3xl group-hover:bg-blue-200/50 transition-all duration-700" />
                         <div className="relative z-10">
