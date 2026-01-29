@@ -1,13 +1,15 @@
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import ServicesSection from "@/components/ServicesSection";
+import StatsBand from "@/components/StatsBand";
 import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50/50">
+    <main className="min-h-screen bg-white">
       <Hero />
-      <Services />
+      <StatsBand />
+      <ServicesSection />
       <Partners />
       <Testimonials />
     </main>

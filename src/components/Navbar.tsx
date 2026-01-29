@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X, Phone } from 'lucide-react';
@@ -8,23 +8,37 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'About Us', href: '/about' },
         { name: 'Services', href: '/#services' },
-        { name: 'Media', href: '/media' },
         { name: 'Gallery', href: '/gallery' },
         { name: 'Contact', href: '/contact' },
     ];
 
     return (
-        <nav className="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 h-20">
+        <nav 
+            className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+                scrolled 
+                    ? 'bg-white/90 backdrop-blur-md shadow-md h-20' 
+                    : 'bg-white h-24'
+            }`}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
 
                 {/* Logo */}
-                <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-                    <div className="relative h-14 w-40">
+                <Link href="/" className="shrink-0 flex items-center gap-2">
+                    <div className="relative h-16 w-48">
                         <Image
                             src="/assets/hems-logo.jpg"
                             alt="HEMS Logo"
@@ -41,7 +55,7 @@ export default function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-gray-700 hover:text-hems-blue font-medium transition-colors text-sm uppercase tracking-wide"
+                            className="text-gray-700 hover:text-hems-primary font-semibold transition-colors text-sm uppercase tracking-wide"
                         >
                             {link.name}
                         </Link>
@@ -49,20 +63,26 @@ export default function Navbar() {
                 </div>
 
                 {/* CTA Button */}
-                <div className="hidden md:flex items-center">
-                    <a
-                        href="tel:591"
-                        className="bg-hems-red text-white py-2.5 px-6 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-hems-red/30 hover:bg-red-600 transition-all transform hover:scale-105"
-                    >
-                        <div className="w-2 h-2 rounded-full bg-white animate-ping" />
-                        <Phone className="w-4 h-4 fill-current" />
-                        <span>EMERGENCY: 591</span>
+                <div className="hidden md:flex items-center gap-6">
+                    <a href="tel:591" className="text-hems-action font-bold hover:text-red-700 transition-colors flex items-center gap-2">
+                        <Phone className="w-4 h-4 fill-current animate-pulse" />
+                        <span>Emergency: 591</span>
                     </a>
+                    <Link
+                        href="/contact"
+                        className="bg-hems-primary text-white py-3 px-6 rounded-lg font-bold shadow-lg hover:bg-blue-900 transition-all transform hover:-translate-y-0.5"
+                    >
+                        Book a Demo
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-hems-blue p-2">
+                    <button 
+                        onClick={() => setIsOpen(!isOpen)} 
+                        className="text-hems-primary p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                        aria-label="Toggle menu"
+                    >
                         {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
                 </div>
@@ -75,7 +95,7 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+                        className="md:hidden bg-white border-t border-gray-100 overflow-hidden shadow-xl"
                     >
                         <div className="flex flex-col p-6 space-y-6">
                             {navLinks.map((link) => (
@@ -83,17 +103,25 @@ export default function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-xl font-semibold text-hems-blue hover:text-hems-red border-b border-gray-50 pb-2"
+                                    className="text-lg font-bold text-gray-800 hover:text-hems-primary py-2 border-b border-gray-50"
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            <div className="pt-4">
-                                <a
-                                    href="tel:08080630"
-                                    className="block w-full text-center bg-hems-blue text-white py-3 rounded-lg font-bold"
+                            <div className="pt-4 flex flex-col gap-4">
+                                <Link
+                                    href="/contact"
+                                    onClick={() => setIsOpen(false)}
+                                    className="flex items-center justify-center w-full bg-hems-primary text-white py-4 rounded-xl font-bold shadow-lg"
                                 >
-                                    Call Support: 0808 0630
+                                    Book a Demo
+                                </Link>
+                                <a
+                                    href="tel:591"
+                                    className="flex items-center justify-center gap-2 w-full bg-red-50 text-hems-action py-4 rounded-xl font-bold border-2 border-red-100"
+                                >
+                                    <Phone className="w-5 h-5 fill-current" />
+                                    EMERGENCY: 591
                                 </a>
                             </div>
                         </div>

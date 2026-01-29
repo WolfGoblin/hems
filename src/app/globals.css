@@ -3,22 +3,58 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-heading: var(--font-heading);
+  --font-sans: var(--font-inter); /* Changed from var(--font-sans) */
+  --font-heading: var(--font-outfit); /* Changed from var(--font-heading) */
   
-  --color-hems-red: #E63946;
-  --color-hems-blue: #1D3557;
-  --color-hems-blue-light: #457B9D;
-  --color-hems-white: #F1FAEE;
+  /* New HEMS Palette */
+  --color-hems-primary: #0f172a; /* Changed from #003366 */
+  --color-hems-secondary: #dc2626; /* Added */
+  --color-hems-accent: #0ea5e9; /* Changed from #00897B */
+  --color-hems-action: #ef4444; /* Changed from #D32F2F */
+  --color-hems-neutral: #F8FAFC; /* Slate 50 */
+}
+
+/* Global Smooth Scroll & Selection */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--color-hems-accent);
+  color: white;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }
 
 :root {
   --background: #ffffff;
-  --foreground: #1D3557;
+  --foreground: #0f172a; /* Slate 900 */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
