@@ -19,7 +19,7 @@ export default function Gallery() {
     const [selected, setSelected] = useState<string | null>(null);
 
     return (
-        <main className="pt-24 min-h-screen bg-gray-50">
+        <main className="pt-28 min-h-screen bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 mb-12 text-center">
                 <h1 className="text-4xl font-bold font-heading mb-4 text-hems-blue">Our Gallery</h1>
                 <p className="text-gray-600 max-w-2xl mx-auto">Witness our state-of-the-art fleet and dedicated medical professionals in action across Zimbabwe.</p>

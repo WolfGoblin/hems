@@ -13,20 +13,19 @@ export default function Navbar() {
         { name: 'Home', href: '/' },
         { name: 'About Us', href: '/about' },
         { name: 'Services', href: '/#services' },
-        { name: 'Media', href: '/media' },
         { name: 'Gallery', href: '/gallery' },
         { name: 'Contact', href: '/contact' },
     ];
 
     return (
-        <nav className="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 h-20">
+        <nav className="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 h-24">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
 
                 {/* Logo */}
                 <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-                    <div className="relative h-14 w-40">
+                    <div className="relative h-20 w-60">
                         <Image
-                            src="/assets/hems-logo.jpg"
+                            src="/assets/hems-logo-v2.png"
                             alt="HEMS Logo"
                             fill
                             className="object-contain object-left"

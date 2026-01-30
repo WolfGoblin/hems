@@ -5,22 +5,22 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
     {
-        name: "Tafadzwa M.",
-        role: "Patient",
-        content: "The response time was incredible. I was in shock after the accident, but the HEMS team was calm, professional, and took control immediately. They saved my life.",
-        rating: 5
+        quote: "The HEMS team arrived within 15 minutes of our collision on the Beitbridge road. Their calm professionalism stabilized my father immediately. Truly world-class service.",
+        author: "Tawanda M.",
+        role: "Family Transport",
+        context: "Highway Collision, Masvingo Rd - Dec 2025"
     },
     {
-        name: "Sarah K.",
-        role: "Parent",
-        content: "When my son needed urgent transport to Harare, HEMS was there. The ambulance was like a mobile ICU. I felt he was in the safest hands possible.",
-        rating: 5
+        quote: "I never thought I'd need an ambulance, but when I did, 591 was the only number that answered instantly. The paramedics were kind, fast, and incredibly skilled.",
+        author: "Sarah J.",
+        role: "Private Motorist",
+        context: "Medical Emergency, Harare - Jan 2026"
     },
     {
-        name: "Insurance Council Rep",
-        role: "Partner",
-        content: "HEMS has revolutionized road safety response in Zimbabwe. Their fleet and personnel are simply world-class.",
-        rating: 5
+        quote: "As a logistics manager, knowing HEMS partners with ICZ gives us peace of mind for our drivers nationwide. Their response time is unmatched.",
+        author: "Mr. G. Moyo",
+        role: "Logistics Director",
+        context: "Corporate Fleet Partner"
     }
 ];
 
@@ -47,15 +47,19 @@ export default function Testimonials() {
                             transition={{ delay: i * 0.1 }}
                             className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/10"
                         >
-                            <div className="flex gap-1 mb-4 text-yellow-400">
-                                {[...Array(t.rating)].map((_, r) => (
-                                    <Star key={r} className="w-5 h-5 fill-current" />
+                            <div className="flex gap-1 mb-4">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                                 ))}
                             </div>
-                            <p className="text-gray-200 mb-6 italic leading-relaxed">"{t.content}"</p>
-                            <div>
-                                <p className="font-bold text-lg">{t.name}</p>
-                                <p className="text-gray-400 text-sm">{t.role}</p>
+                            <p className="text-gray-100 italic mb-6 leading-relaxed relative z-10">
+                                "{t.quote}"
+                            </p>
+
+                            <div className="mt-auto">
+                                <div className="text-xs font-bold text-hems-red uppercase tracking-wide mb-1">{t.context}</div>
+                                <h4 className="font-bold text-white text-lg">{t.author}</h4>
+                                <p className="text-sm text-gray-400">{t.role}</p>
                             </div>
                         </motion.div>
                     ))}

@@ -7,26 +7,34 @@ const services = [
     {
         icon: Truck,
         title: "24/7 Nationwide Accident Response",
-        desc: "Rapid deployment fleet covering major Zimbabwean highways ensuring help is always within reach.",
-        color: "bg-blue-50 text-hems-blue"
+        desc: "Rapid deployment fleet covering major Zimbabwean highways. Our ambulances are positioned for minimal response times.",
+        color: "bg-blue-50 text-hems-blue",
+        forWho: "Highway travelers, Trucking companies",
+        benefit: "Avg. 20 min response time"
     },
     {
         icon: Activity,
         title: "Certified Trauma Specialists",
-        desc: "Our team consists of highly trained paramedics and doctors specializing in trauma and critical care.",
-        color: "bg-red-50 text-hems-red"
+        desc: "Our team consists of highly trained paramedics and doctors specializing in trauma and critical care stabilization.",
+        color: "bg-red-50 text-hems-red",
+        forWho: "Accident victims, Critical patients",
+        benefit: "Advanced Life Support on-site"
     },
     {
         icon: BookOpen,
         title: "Professional First Aid Training",
-        desc: "Comprehensive training programs for corporates and individuals to handle emergencies effectively.",
-        color: "bg-green-50 text-green-700"
+        desc: "Comprehensive training programs to empower your team to handle emergencies effectively before help arrives.",
+        color: "bg-green-50 text-green-700",
+        forWho: "Corporates, Schools, Drivers",
+        benefit: "Internationally recognized certification"
     },
     {
         icon: Building2,
         title: "Secure Hospital Transfers",
-        desc: "Safe and medically supervised patient transport between healthcare facilities across the country.",
-        color: "bg-purple-50 text-purple-700"
+        desc: "Safe, comfortable, and medically supervised patient transport between healthcare facilities anywhere in Zimbabwe.",
+        color: "bg-purple-50 text-purple-700",
+        forWho: "Private patients, Hospitals",
+        benefit: "Continuity of expert care"
     }
 ];
 
@@ -48,20 +56,28 @@ export default function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow group border border-gray-100"
+                            className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all group border border-gray-100 flex flex-col h-full"
                         >
-                            <div className={`w-16 h-16 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                                <service.icon className="w-8 h-8" />
+                            <div className={`w-14 h-14 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                                <service.icon className="w-7 h-7" />
                             </div>
-                            <h4 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-hems-blue transition-colors">
+                            <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-hems-blue transition-colors">
                                 {service.title}
                             </h4>
-                            <p className="text-gray-600 mb-6 leading-relaxed">
+                            <p className="text-gray-500 text-sm mb-4 flex-grow">
                                 {service.desc}
                             </p>
-                            <a href="#" className="inline-flex items-center text-sm font-bold text-hems-blue hover:text-hems-red transition-colors">
-                                Learn more <ArrowRight className="w-4 h-4 ml-1" />
-                            </a>
+
+                            <div className="pt-4 border-t border-gray-50 mt-auto space-y-3">
+                                <div>
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1">Best For</span>
+                                    <span className="text-sm font-medium text-gray-700">{service.forWho}</span>
+                                </div>
+                                <div>
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1">Primary Benefit</span>
+                                    <span className="text-sm font-bold text-hems-blue">{service.benefit}</span>
+                                </div>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

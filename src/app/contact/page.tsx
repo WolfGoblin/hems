@@ -88,7 +88,13 @@ export default function Contact() {
                         </div>
                         <div>
                             <label className="block text-sm font-bold text-gray-700 mb-2">Subject</label>
-                            <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-hems-blue focus:ring-2 focus:ring-hems-blue/20 outline-none transition-all" placeholder="Inquiry about training" />
+                            <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-hems-blue focus:ring-2 focus:ring-hems-blue/20 outline-none transition-all">
+                                <option>Select a Topic...</option>
+                                <option>Emergency Feedback</option>
+                                <option>Corporate Training Enquiry (Coming Soon)</option>
+                                <option>Membership & Partnerships</option>
+                                <option>General Inquiry</option>
+                            </select>
                         </div>
                         <div>
                             <label className="block text-sm font-bold text-gray-700 mb-2">Message</label>

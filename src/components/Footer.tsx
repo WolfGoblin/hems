@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, MapPin, Phone, Mail, Instagram, Twitter } from 'lucide-react';
 
 export default function Footer() {
@@ -11,9 +12,14 @@ export default function Footer() {
 
                     {/* Brand */}
                     <div>
-                        <h3 className="text-2xl font-bold font-heading mb-6 flex items-center gap-2">
-                            <span className="text-hems-red text-4xl">✚</span> HEMS
-                        </h3>
+                        <div className="relative h-28 w-72 mb-6">
+                            <Image
+                                src="/assets/hems-logo-footer-new.png"
+                                alt="HEMS Logo"
+                                fill
+                                className="object-contain object-left"
+                            />
+                        </div>
                         <p className="text-gray-400 leading-relaxed mb-6">
                             Setting the standard for emergency road response. Dedicated to saving lives on Zimbabwe's highways.
                         </p>
@@ -36,7 +42,6 @@ export default function Footer() {
                         <ul className="space-y-3 text-gray-400">
                             <li><Link href="/about" className="hover:text-hems-red transition-colors">About Us</Link></li>
                             <li><Link href="/#services" className="hover:text-hems-red transition-colors">Our Services</Link></li>
-                            <li><Link href="/media" className="hover:text-hems-red transition-colors">News & Media</Link></li>
                             <li><Link href="/gallery" className="hover:text-hems-red transition-colors">Gallery</Link></li>
                             <li><Link href="/contact" className="hover:text-hems-red transition-colors">Contact</Link></li>
                         </ul>

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function About() {
     return (
-        <main className="pt-20 min-h-screen">
+        <main className="pt-24 min-h-screen">
             {/* Header */}
             <section className="bg-hems-blue text-white py-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/assets/slide-2.jpg')] bg-cover bg-center opacity-10 mix-blend-overlay" />
