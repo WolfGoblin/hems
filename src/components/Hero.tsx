@@ -7,32 +7,25 @@ import { Phone, ArrowRight, ShieldCheck, MapPin, Clock, Users } from 'lucide-rea
 
 const slides = [
     {
-        image: '/assets/hero-new-2.jpg', // Fleet lineup
+        image: '/assets/hero-slider-1.jpg', // Team Group Photo
         title: "Saving Lives on Zimbabwe’s Highways.",
         subtitle: "Average response time of under 20 minutes. We reach you when it matters most.",
-        cta: "Our Fleet",
-        link: "/gallery"
+        cta: "Meet Our Team",
+        link: "/about"
     },
     {
-        image: '/assets/hero-new-4.jpg', // Action shot / crash scene
+        image: '/assets/hero-slider-2.jpg', // Rapid Response SUV
         title: "Rapid Response, Reliable Recovery",
         subtitle: "We ensure no life is lost due to delayed response on Zimbabwean highways.",
         cta: "Get Emergency Help",
         link: "tel:591"
     },
     {
-        image: '/assets/hero-new-3.jpg', // Night/Emergency
-        title: "World-Class Emergency Care.",
-        subtitle: "17 Ambulances, 5 Rapid Responders, and Certified Trauma Teams ready 24/7.",
-        cta: "About HEMS",
-        link: "/about"
-    },
-    {
-        image: '/assets/hero-new-1.jpg', // ICZ/Partners
-        title: "Partnered for Your Safety.",
-        subtitle: "Proudly working with ICZ and TSCZ to secure Zimbabwe's roads.",
-        cta: "Our Partners",
-        link: "/#partners"
+        image: '/assets/hero-slider-3.jpg', // Ambulance Lineup
+        title: "World-Class Emergency Fleet.",
+        subtitle: "17 Ambulances and 5 Rapid Responders ready to deploy 24/7.",
+        cta: "View Gallery",
+        link: "/gallery"
     }
 ];
 
