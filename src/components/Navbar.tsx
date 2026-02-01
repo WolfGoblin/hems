@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X, Phone } from 'lucide-react';
@@ -8,6 +8,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const navLinks = [
         { name: 'Home', href: '/' },
@@ -18,17 +27,21 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 h-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
+                ? 'bg-white/95 backdrop-blur-sm shadow-md'
+                : 'bg-transparent'
+            }`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
 
                 {/* Logo */}
                 <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-                    <div className="relative h-20 w-60">
+                    <div className="relative h-16 w-48">
                         <Image
                             src="/assets/hems-logo-v2.png"
                             alt="HEMS Logo"
                             fill
-                            className="object-contain object-left"
+                            className={`object-contain object-left transition-all ${scrolled ? '' : 'brightness-0 invert'
+                                }`}
                             priority
                         />
                     </div>
@@ -40,7 +53,10 @@ export default function Navbar() {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-gray-700 hover:text-hems-blue font-medium transition-colors text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-hems-blue/50 focus:ring-offset-2 rounded-sm"
+                            className={`font-medium transition-colors text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-sm ${scrolled
+                                    ? 'text-gray-700 hover:text-hems-blue focus:ring-hems-blue/50'
+                                    : 'text-white/90 hover:text-white focus:ring-white/50'
+                                }`}
                         >
                             {link.name}
                         </Link>
@@ -64,7 +80,10 @@ export default function Navbar() {
                 <div className="md:hidden">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="text-hems-blue p-2 focus:outline-none focus:ring-2 focus:ring-hems-blue/50 rounded-lg"
+                        className={`p-2 focus:outline-none focus:ring-2 rounded-lg ${scrolled
+                                ? 'text-hems-blue focus:ring-hems-blue/50'
+                                : 'text-white focus:ring-white/50'
+                            }`}
                         aria-label={isOpen ? "Close menu" : "Open menu"}
                         aria-expanded={isOpen}
                     >
@@ -95,10 +114,10 @@ export default function Navbar() {
                             ))}
                             <div className="pt-4">
                                 <a
-                                    href="tel:08080630"
-                                    className="block w-full text-center bg-hems-blue text-white py-3 rounded-lg font-bold"
+                                    href="tel:591"
+                                    className="block w-full text-center bg-hems-red text-white py-3 rounded-lg font-bold"
                                 >
-                                    Call Support: 0808 0630
+                                    Emergency: Call 591
                                 </a>
                             </div>
                         </div>
