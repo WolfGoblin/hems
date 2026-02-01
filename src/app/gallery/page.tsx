@@ -5,14 +5,16 @@ import { X, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const images = [
-    '/assets/slide-1.jpg',
-    '/assets/slide-2.jpg',
-    '/assets/slide-3.jpg',
+    '/assets/hero-slider-1.jpg',
+    '/assets/hero-slider-2.jpg',
+    '/assets/hero-slider-3.jpg',
+    '/assets/staff-1.jpg',
+    '/assets/staff-2.jpg',
+    '/assets/staff-3.jpg',
+    '/assets/fleet-lineup.jpg',
+    '/assets/fleet-action.jpg',
     '/assets/gallery-new-1.jpg',
     '/assets/gallery-new-2.jpg',
-    '/assets/gallery-new-3.jpg',
-    '/assets/gallery-new-4.jpg',
-    '/assets/gallery-new-5.jpg',
 ];
 
 export default function Gallery() {

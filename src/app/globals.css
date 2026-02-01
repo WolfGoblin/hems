@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-heading: var(--font-heading);
-  
+
   --color-hems-red: #E63946;
   --color-hems-blue: #1D3557;
   --color-hems-blue-light: #457B9D;

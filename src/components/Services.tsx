@@ -56,7 +56,7 @@ export default function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all group border border-gray-100 flex flex-col h-full"
+                            className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group border border-gray-100 flex flex-col h-full cursor-pointer"
                         >
                             <div className={`w-14 h-14 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                                 <service.icon className="w-7 h-7" />

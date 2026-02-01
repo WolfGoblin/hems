@@ -3,6 +3,7 @@ import Services from "@/components/Services";
 import Partners from "@/components/Partners";
 import ImpactStats from "@/components/ImpactStats";
 import AccidentChecklist from "@/components/AccidentChecklist";
+import TrustGallery from "@/components/TrustGallery";
 
 export default function Home() {
   return (
@@ -27,6 +28,7 @@ export default function Home() {
       <Services />
       <ImpactStats />
       <AccidentChecklist />
+      <TrustGallery />
       <Partners />
     </main>
   );
