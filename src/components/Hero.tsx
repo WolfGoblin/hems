@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, ArrowRight, MapPin, ShieldCheck, Users, Siren } from 'lucide-react';
+import { Phone, ArrowRight, MapPin, Siren } from 'lucide-react';
 
 const slides = [
     {
@@ -29,13 +29,6 @@ const highways = [
     "Beitbridge – Masvingo",
     "Harare – Chirundu",
     "Bulawayo – Victoria Falls"
-];
-
-const stats = [
-    { icon: MapPin, label: "Nationwide Coverage", value: "17+ Bases" },
-    { icon: ShieldCheck, label: "ICZ & TSCZ Partners", value: "Official" },
-    { icon: Users, label: "Trauma Specialists", value: "Certified" },
-    { icon: Phone, label: "Toll-Free Access", value: "591" },
 ];
 
 export default function Hero() {
@@ -84,7 +77,7 @@ export default function Hero() {
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 min-h-screen flex items-center pt-24 pb-32">
+            <div className="relative z-10 min-h-screen flex items-center pt-24 pb-48">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -97,7 +90,7 @@ export default function Hero() {
                             className="text-white"
                         >
                             {/* Main Heading */}
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight font-heading">
+                            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black mb-6 leading-tight font-heading">
                                 {slides[current].title}
                             </h1>
 
@@ -161,58 +154,39 @@ export default function Hero() {
                             </div>
                         </motion.div>
 
-                        {/* Right Column - Stats Grid (visible on larger screens) */}
+                        {/* Right Column - Illustrative Space or Branding Focus */}
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.6, duration: 0.8 }}
-                            className="hidden lg:grid grid-cols-2 gap-5"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.6, duration: 1 }}
+                            className="hidden lg:flex items-center justify-end"
                         >
-                            {stats.map((stat, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.8 + idx * 0.1 }}
-                                    className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 hover:bg-white/20 hover:scale-105 transition-all group cursor-pointer"
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-14 h-14 rounded-xl bg-hems-red/25 flex items-center justify-center group-hover:bg-hems-red/40 transition-colors">
-                                            <stat.icon className="w-7 h-7 text-hems-red" aria-hidden="true" />
-                                        </div>
-                                        <div>
-                                            <p className="text-3xl font-black text-white">{stat.value}</p>
-                                            <p className="text-sm text-gray-300 uppercase tracking-wide">{stat.label}</p>
+                            <div className="relative w-full max-w-md aspect-square">
+                                <div className="absolute inset-0 bg-hems-red/20 rounded-full blur-3xl animate-pulse" />
+                                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-2xl overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-4 opacity-20 transition-transform duration-700 group-hover:scale-125 group-hover:rotate-12">
+                                        <Siren className="w-40 h-40 text-white" />
+                                    </div>
+                                    <div className="relative z-10">
+                                        <div className="w-16 h-1 w-hems-red bg-hems-red rounded-full mb-6" />
+                                        <h3 className="text-3xl font-black text-white mb-4 italic uppercase">Always Ready.</h3>
+                                        <p className="text-gray-300 text-lg mb-8 font-medium leading-relaxed">
+                                            Equipped with the latest life-support technology and a team of certified trauma specialists, we bridge the gap between emergency and hospital care.
+                                        </p>
+                                        <div className="flex items-center gap-3 text-hems-red font-black">
+                                            <div className="w-3 h-3 bg-hems-red rounded-full animate-ping" />
+                                            Live National Dispatch
                                         </div>
                                     </div>
-                                </motion.div>
-                            ))}
+                                </div>
+                            </div>
                         </motion.div>
                     </div>
-
-                    {/* Mobile Stats Strip */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1 }}
-                        className="lg:hidden mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4"
-                    >
-                        {stats.map((stat, idx) => (
-                            <div
-                                key={idx}
-                                className="bg-white/10 backdrop-blur-sm rounded-xl p-5 text-center border border-white/15"
-                            >
-                                <stat.icon className="w-6 h-6 text-hems-red mx-auto mb-2" aria-hidden="true" />
-                                <p className="text-xl font-bold text-white">{stat.value}</p>
-                                <p className="text-xs text-gray-300 uppercase tracking-wide">{stat.label}</p>
-                            </div>
-                        ))}
-                    </motion.div>
                 </div>
             </div>
 
             {/* Slide Indicators */}
-            <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+            <div className="absolute bottom-32 left-1/2 -translate-x-1/2 z-20 flex gap-3">
                 {slides.map((_, idx) => (
                     <button
                         key={idx}
@@ -226,9 +200,9 @@ export default function Hero() {
 
             {/* Curved Divider */}
             <div className="absolute bottom-0 left-0 right-0 z-10">
-                <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+                <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
                     <path
-                        d="M0 100L60 92C120 84 240 68 360 60C480 52 600 52 720 56C840 60 960 68 1080 72C1200 76 1320 76 1380 76L1440 76V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0Z"
+                        d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
                         fill="white"
                     />
                 </svg>

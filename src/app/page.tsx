@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import QuickStats from "@/components/QuickStats";
 import Services from "@/components/Services";
 import Partners from "@/components/Partners";
 import ImpactStats from "@/components/ImpactStats";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50/50">
       <Hero />
+      <QuickStats />
 
       {/* Expanded About Summary */}
       <section className="py-16 bg-white text-center">
