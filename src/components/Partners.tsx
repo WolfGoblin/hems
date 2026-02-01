@@ -26,6 +26,7 @@ export default function Partners() {
                                     src="/assets/partner-icz.png"
                                     alt="ICZ Logo"
                                     fill
+                                    loading="lazy"
                                     className="object-contain object-left"
                                 />
                             </div>
@@ -43,6 +44,7 @@ export default function Partners() {
                                     src="/assets/partner-tscz.jpg"
                                     alt="TSCZ Logo"
                                     fill
+                                    loading="lazy"
                                     className="object-contain object-left"
                                 />
                             </div>
@@ -55,9 +57,9 @@ export default function Partners() {
                 </div>
 
                 <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm font-semibold text-gray-500">
-                    <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full" /> EMA Regulated</span>
-                    <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full" /> AHPCZ Registered</span>
-                    <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full" /> Certified Advanced Life Support</span>
+                    <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full" aria-hidden="true" /> EMA Regulated</span>
+                    <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full" aria-hidden="true" /> AHPCZ Registered</span>
+                    <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-500 rounded-full" aria-hidden="true" /> Certified Advanced Life Support</span>
                 </div>
             </div>
         </section>

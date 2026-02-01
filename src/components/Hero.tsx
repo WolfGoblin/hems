@@ -87,13 +87,20 @@ export default function Hero() {
                                 {slides[current].subtitle}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <a href="tel:591" className="bg-hems-red hover:bg-red-700 active:scale-95 text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
-                                    <Phone className="w-5 h-5 fill-current" />
+                                <a
+                                    href="tel:591"
+                                    aria-label="Call emergency number 591"
+                                    className="bg-hems-red hover:bg-red-700 active:scale-95 text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-white/50"
+                                >
+                                    <Phone className="w-5 h-5 fill-current" aria-hidden="true" />
                                     Call 591 Now
                                 </a>
-                                <a href={slides[current].link} className="bg-white/10 backdrop-blur-md hover:bg-white/20 active:bg-white/30 text-white border border-white/30 px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2 group hover:scale-105">
+                                <a
+                                    href={slides[current].link}
+                                    className="bg-white/10 backdrop-blur-md hover:bg-white/20 active:bg-white/30 text-white border border-white/30 px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2 group hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white/50"
+                                >
                                     {slides[current].cta}
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                                 </a>
                             </div>
                         </motion.div>

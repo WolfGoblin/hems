@@ -50,15 +50,16 @@ export default function Services() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {services.map((service, index) => (
-                        <motion.div
+                        <motion.article
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group border border-gray-100 flex flex-col h-full cursor-pointer"
+                            tabIndex={0}
+                            className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:scale-[1.02] focus:scale-[1.02] focus:shadow-2xl transition-all duration-300 group border border-gray-100 flex flex-col h-full cursor-pointer focus:outline-none focus:ring-4 focus:ring-hems-blue/30"
                         >
-                            <div className={`w-14 h-14 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                            <div className={`w-14 h-14 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`} aria-hidden="true">
                                 <service.icon className="w-7 h-7" />
                             </div>
                             <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-hems-blue transition-colors">
@@ -78,7 +79,7 @@ export default function Services() {
                                     <span className="text-sm font-bold text-hems-blue">{service.benefit}</span>
                                 </div>
                             </div>
-                        </motion.div>
+                        </motion.article>
                     ))}
                 </div>
             </div>

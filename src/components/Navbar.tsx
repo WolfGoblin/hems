@@ -35,33 +35,39 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center space-x-8">
+                <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-gray-700 hover:text-hems-blue font-medium transition-colors text-sm uppercase tracking-wide"
+                            className="text-gray-700 hover:text-hems-blue font-medium transition-colors text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-hems-blue/50 focus:ring-offset-2 rounded-sm"
                         >
                             {link.name}
                         </Link>
                     ))}
-                </div>
+                </nav>
 
                 {/* CTA Button */}
                 <div className="hidden md:flex items-center">
                     <a
                         href="tel:591"
-                        className="bg-hems-red text-white py-2.5 px-6 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-hems-red/30 hover:bg-red-600 transition-all transform hover:scale-105"
+                        aria-label="Call emergency number 591"
+                        className="bg-hems-red text-white py-2.5 px-6 rounded-full font-bold flex items-center gap-2 shadow-lg shadow-hems-red/30 hover:bg-red-700 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-hems-red/50"
                     >
-                        <div className="w-2 h-2 rounded-full bg-white animate-ping" />
-                        <Phone className="w-4 h-4 fill-current" />
+                        <div className="w-2 h-2 rounded-full bg-white animate-ping" aria-hidden="true" />
+                        <Phone className="w-4 h-4 fill-current" aria-hidden="true" />
                         <span>EMERGENCY: 591</span>
                     </a>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-hems-blue p-2">
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="text-hems-blue p-2 focus:outline-none focus:ring-2 focus:ring-hems-blue/50 rounded-lg"
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isOpen}
+                    >
                         {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
                 </div>

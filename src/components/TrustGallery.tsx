@@ -35,6 +35,8 @@ export default function TrustGallery() {
                                 src={img.src}
                                 alt={img.alt}
                                 fill
+                                loading="lazy"
+                                sizes="(max-width: 768px) 50vw, 20vw"
                                 className="object-cover"
                             />
                         </motion.div>

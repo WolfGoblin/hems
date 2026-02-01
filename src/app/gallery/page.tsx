@@ -34,10 +34,21 @@ export default function Gallery() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: idx * 0.1 }}
-                        className="relative h-72 cursor-pointer group rounded-2xl overflow-hidden shadow-lg border border-gray-100"
+                        className="relative h-72 cursor-pointer group rounded-2xl overflow-hidden shadow-lg border border-gray-100 focus:outline-none focus:ring-4 focus:ring-hems-blue/30"
                         onClick={() => setSelected(img)}
+                        onKeyDown={(e) => e.key === 'Enter' && setSelected(img)}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={`View gallery image ${idx + 1}`}
                     >
-                        <Image src={img} alt={`Gallery Image ${idx + 1}`} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image
+                            src={img}
+                            alt={`Gallery Image ${idx + 1}`}
+                            fill
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-4 right-4 text-white">
                                 <ZoomIn />
@@ -58,10 +69,11 @@ export default function Gallery() {
                         onClick={() => setSelected(null)}
                     >
                         <button
-                            className="absolute top-6 right-6 text-white p-2 hover:text-hems-red bg-white/10 rounded-full transition-colors"
+                            className="absolute top-6 right-6 text-white p-2 hover:text-hems-red bg-white/10 rounded-full transition-colors focus:outline-none focus:ring-4 focus:ring-white/50"
                             onClick={() => setSelected(null)}
+                            aria-label="Close gallery view"
                         >
-                            <X size={32} />
+                            <X size={32} aria-hidden="true" />
                         </button>
                         <motion.div
                             initial={{ scale: 0.9 }}

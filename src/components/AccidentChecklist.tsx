@@ -38,16 +38,17 @@ export default function AccidentChecklist() {
                         </p>
                         <a
                             href="tel:591"
-                            className="bg-white text-hems-red font-bold py-4 px-8 rounded-full text-center hover:bg-gray-100 transition-colors shadow-lg animate-pulse"
+                            aria-label="Call emergency number 591"
+                            className="bg-white text-hems-red font-bold py-4 px-8 rounded-full text-center hover:bg-gray-100 active:scale-95 transition-all shadow-lg focus:outline-none focus:ring-4 focus:ring-white/50"
                         >
                             Emergency: Call 591
                         </a>
                     </div>
 
                     <div className="lg:w-2/3 p-8 lg:p-12">
-                        <div className="grid md:grid-cols-2 gap-8">
+                        <ol className="grid md:grid-cols-2 gap-8 list-none">
                             {steps.map((step, idx) => (
-                                <motion.div
+                                <motion.li
                                     key={idx}
                                     initial={{ opacity: 0, x: 20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
@@ -55,17 +56,17 @@ export default function AccidentChecklist() {
                                     className="flex gap-4"
                                 >
                                     <div className="flex-shrink-0">
-                                        <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center">
-                                            <step.icon className="w-6 h-6 text-hems-red" />
+                                        <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-hems-red font-bold text-lg">
+                                            {idx + 1}
                                         </div>
                                     </div>
                                     <div>
                                         <h3 className="font-bold text-gray-900 text-lg mb-2">{step.title}</h3>
                                         <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
                                     </div>
-                                </motion.div>
+                                </motion.li>
                             ))}
-                        </div>
+                        </ol>
 
                         <div className="mt-8 pt-8 border-t border-gray-100">
                             <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
